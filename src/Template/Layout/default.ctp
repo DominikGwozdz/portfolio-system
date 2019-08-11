@@ -34,9 +34,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <?= $this->Flash->render() ?>
+    <nav>
 
-        <?= $this->fetch('content') ?>
+    </nav>
+
+
+    <?= $this->Flash->render() ?>
+    <?= $this->fetch('content') ?>
+
 
     <footer>
 
