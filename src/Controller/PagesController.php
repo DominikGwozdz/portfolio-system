@@ -58,6 +58,7 @@ class PagesController extends AppController
         $this->set(compact('page', 'subpage'));
 
         try {
+            //code here if you want send sth from controller to view
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
             if (Configure::read('debug')) {
