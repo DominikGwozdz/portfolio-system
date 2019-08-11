@@ -13,7 +13,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Portfolio System';
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark cyan fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
             <img src="images/nav-logo.png" alt="nav-logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,16 +52,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Strona Główna</a>
+                    <a class="nav-link" href="/">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">O mnie</a>
+                    <a class="nav-link" href="/omnie">O mnie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">Galeria </a>
+                    <a class="nav-link" href="/galeria">Galeria </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Kontakt </a>
+                    <a class="nav-link" href="/kontakt">Kontakt </a>
                 </li>
             </ul>
         </div>
