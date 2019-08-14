@@ -17,7 +17,9 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
+use Cake\ORM\TableRegistry;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\ORM\Entity;
 
 /**
  * Static content controller
@@ -59,6 +61,12 @@ class PagesController extends AppController
 
         try {
             //code here if you want send sth from controller to view
+            $top_slider_homepage = $this->loadModel('TopSliderHomepage');
+            $top_slider_homepage = $top_slider_homepage->find();
+
+            $this->set("top_slider_homepage", $top_slider_homepage);
+
+
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
             if (Configure::read('debug')) {
@@ -66,5 +74,9 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+    }
+
+    public function TopSliderHomepage() {
+
     }
 }
