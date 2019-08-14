@@ -2,63 +2,35 @@
 <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="images/banner-image-4.jpg" alt="First slide">
-            <div class="gradient"></div>
-            <div class="carousel-caption">
-                <h1>Woman walking in the green fields.</h1>
-                <p class="lead">Woman walking in the green fields...</p>
-                <a class="btn btn-primary" href="about.html"><span>Learn more</span></a>
+        <?php foreach ($top_slider_homepage as $slider): ?>
+            <div class="carousel-item <?php if ($slider->id == '1'): ?>active<?php endif; ?>">
+                <img class="d-block w-100" src="assets/<?= h($slider->url) ?>" alt="First slide">
+                <div class="gradient"></div>
+                <div class="carousel-caption">
+                    <h1><?= h($slider->title) ?></h1>
+                    <p class="lead"><?= h($slider->description) ?></p>
+                </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="images/banner-image-3.jpg" alt="Second slide">
-            <div class="gradient"></div>
-            <div class="carousel-caption">
-                <h1>Remainings of old boat in the beach of bali.</h1>
-                <p class="lead">Remainings of old boat in the beach of bali...</p>
-                <a class="btn btn-primary" href="about.html"><span>Learn more</span></a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="images/banner-image-2.jpg" alt="Third slide">
-            <div class="gradient"></div>
-            <div class="carousel-caption">
-                <h1>Beautiful sunsetting in the mountains.</h1>
-                <p class="lead">Beautiful sunsetting in the mountains...</p>
-                <a class="btn btn-primary" href="about.html"><span>Learn more</span></a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="images/banner-image-1.jpg" alt="Third slide">
-            <div class="gradient"></div>
-            <div class="carousel-caption">
-                <h1>Snow white mountain of east china.</h1>
-                <p class="lead">Snow white mountain of east china...</p>
-                <a class="btn btn-primary" href="about.html"><span>Learn more</span></a>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
     <!--/.Slides-->
     <!--/.Controls-->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="images/banner-image-4.jpg" class="img-fluid">
+        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="assets/banner-image-4.jpg" class="img-fluid">
             <span>Woman walking in the green fields</span>
         </li>
-        <li data-target="#carousel-thumb" data-slide-to="1"><img class="d-block w-100" src="images/banner-image-3.jpg" class="img-fluid">
+        <li data-target="#carousel-thumb" data-slide-to="1"><img class="d-block w-100" src="assets/banner-image-3.jpg" class="img-fluid">
             <span>Remainings of old boat in the beach of bali.</span>
         </li>
-        <li data-target="#carousel-thumb" data-slide-to="2"><img class="d-block w-100" src="images/banner-image-2.jpg" class="img-fluid">
+        <li data-target="#carousel-thumb" data-slide-to="2"><img class="d-block w-100" src="assets/banner-image-2.jpg" class="img-fluid">
             <span>Beautiful sunsetting in the mountains.</span>
         </li>
-        <li data-target="#carousel-thumb" data-slide-to="3"><img class="d-block w-100" src="images/banner-image-1.jpg" class="img-fluid">
+        <li data-target="#carousel-thumb" data-slide-to="3"><img class="d-block w-100" src="assets/banner-image-1.jpg" class="img-fluid">
             <span>Snow white mountain of east china.</span>
         </li>
     </ol>
 </div>
 <!--/.Carousel Wrapper-->
-
-
 
 <!-- Page Content -->
 
