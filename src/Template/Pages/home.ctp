@@ -3,31 +3,28 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         <?php foreach ($top_slider_homepage as $slider): ?>
-            <div class="carousel-item <?php if ($slider->id == '1'): ?>active<?php endif; ?>">
-                <img class="d-block w-100" src="assets/<?= h($slider->url) ?>" alt="First slide">
-                <div class="gradient"></div>
-                <div class="carousel-caption">
-                    <h1><?= h($slider->title) ?></h1>
-                    <p class="lead"><?= h($slider->description) ?></p>
+            <?php if ($slider->is_visible == '1'): ?>
+                <div class="carousel-item <?php if ($slider->id == '1'): ?>active<?php endif; ?>">
+                    <img class="d-block w-100" src="assets/<?= h($slider->url) ?>">
+                    <div class="gradient"></div>
+                    <div class="carousel-caption">
+                        <h1><?= h($slider->title) ?></h1>
+                        <p class="lead"><?= h($slider->description) ?></p>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
     <!--/.Slides-->
     <!--/.Controls-->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="assets/banner-image-4.jpg" class="img-fluid">
-            <span>Woman walking in the green fields</span>
-        </li>
-        <li data-target="#carousel-thumb" data-slide-to="1"><img class="d-block w-100" src="assets/banner-image-3.jpg" class="img-fluid">
-            <span>Remainings of old boat in the beach of bali.</span>
-        </li>
-        <li data-target="#carousel-thumb" data-slide-to="2"><img class="d-block w-100" src="assets/banner-image-2.jpg" class="img-fluid">
-            <span>Beautiful sunsetting in the mountains.</span>
-        </li>
-        <li data-target="#carousel-thumb" data-slide-to="3"><img class="d-block w-100" src="assets/banner-image-1.jpg" class="img-fluid">
-            <span>Snow white mountain of east china.</span>
-        </li>
+        <?php foreach ($top_slider_homepage as $slider_indicator): ?>
+            <?php if ($slider_indicator->is_visible == '1'): ?>
+                <li data-target="#carousel-thumb" data-slide-to="<?= h($slider_indicator->id-1) ?>"> <img class="d-block w-100" src="assets/<?= h($slider_indicator->url) ?>" class="img-fluid">
+                    <span><?= h($slider_indicator->title) ?></span>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </ol>
 </div>
 <!--/.Carousel Wrapper-->
