@@ -79,25 +79,16 @@ $cakeDescription = 'Portfolio System';
         <section class="footer-top">
             <!--Container-->
             <div class="container">
-                <h2>Moje zdjęcia</h2>
+                <h2>Moje ulubione zdjęcia</h2>
                 <div class="row text-center text-lg-left">
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-1.jpg" alt=""></a>
+                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-2.jpg" alt=""></a>
+                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
                     </div>
                     <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-3.jpg" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-4.jpg" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-2.jpg" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="images/banner-image-1.jpg" alt=""></a>
+                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
                     </div>
                 </div>
 
