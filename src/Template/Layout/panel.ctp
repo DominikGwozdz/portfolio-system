@@ -58,6 +58,11 @@ $cakeDescription = 'Portfolio System';
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Panel zarządzania</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Podgląd strony</span></a>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
