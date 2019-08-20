@@ -69,5 +69,15 @@ class PanelController extends AppController
         }
     }
 
+    public function editSlider($id = null)
+    {
+        $top_slider_homepage = $this->loadModel('TopSliderHomepage');
+        $top_slider_homepage = $top_slider_homepage->findById($id)->first();
+
+        $this->set("top_slider_homepage", $top_slider_homepage);
+        $this->render("edit_slider");
+
+    }
+
 
 }
