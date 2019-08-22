@@ -79,5 +79,10 @@ class PanelController extends AppController
 
     }
 
+    public function updateSlider($id = null)
+    {
+
+    }
+
 
 }
