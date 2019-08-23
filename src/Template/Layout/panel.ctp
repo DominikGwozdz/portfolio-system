@@ -83,6 +83,7 @@ $cakeDescription = 'Portfolio System';
                     <h6 class="collapse-header">Elementy:</h6>
                     <a class="collapse-item" href="/panel/slider">Zdjęcia</a>
                     <a class="collapse-item" href="/panel/slider">Wyróżnione zdjęcia</a>
+                    <a class="collapse-item" href="/panel/favourites_footer">Ulubione zdjęcia</a>
                 </div>
             </div>
 
@@ -97,10 +98,7 @@ $cakeDescription = 'Portfolio System';
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <a class="collapse-item" href="utilities-color.html">Inne</a>
                 </div>
             </div>
         </li>
