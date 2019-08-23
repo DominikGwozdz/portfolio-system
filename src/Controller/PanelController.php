@@ -103,6 +103,8 @@ class PanelController extends AppController
         $slider_element = $top_slider_homepage_table->get($id);
         $top_slider_homepage_table->delete($slider_element);
 
+        unlink(WWW_ROOT . '/assets/'. $slider_element->url);
+
         $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
 
         $this->redirect('/panel/slider/'. $id);
