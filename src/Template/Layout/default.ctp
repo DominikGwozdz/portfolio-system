@@ -81,15 +81,13 @@ $cakeDescription = 'Portfolio System';
             <div class="container">
                 <h2>Moje ulubione zdjęcia</h2>
                 <div class="row text-center text-lg-left">
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="/assets/top_slider_homepage/banner-image-1.jpg" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/top_slider_homepage/banner-image-1.jpg" alt=""></a>
-                    </div>
+                    <?php foreach ($favourites_footer as $favourite): ?>
+                        <?php if ($favourite->is_visible == '1'): ?>
+                            <div class="col-lg-2 col-md-4 col-xs-6">
+                                <a href="/assets/<?= $favourite->url ?>" data-toggle="lightbox" data-gallery="favourites-gallery" class="d-block h-100"><img class="img-fluid img-thumbnail" src="/assets/<?= $favourite->url ?>" alt=""></a>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
 
             </div>

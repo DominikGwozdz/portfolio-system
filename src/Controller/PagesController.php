@@ -64,7 +64,11 @@ class PagesController extends AppController
             $top_slider_homepage = $this->loadModel('TopSliderHomepage');
             $top_slider_homepage = $top_slider_homepage->find();
 
+            $favourites_footer = $this->loadModel('FavouritesFooter');
+            $favourites_footer = $favourites_footer->find();
+
             $this->set("top_slider_homepage", $top_slider_homepage);
+            $this->set("favourites_footer", $favourites_footer);
 
 
             $this->render(implode('/', $path));
