@@ -18,9 +18,11 @@
     <!--/.Slides-->
     <!--/.Controls-->
     <ol class="carousel-indicators">
+        <?php $counter = 0; ?>
         <?php foreach ($top_slider_homepage as $slider_indicator): ?>
             <?php if ($slider_indicator->is_visible == '1'): ?>
-                <li data-target="#carousel-thumb" data-slide-to="<?= h($slider_indicator->id-1) ?>"> <img class="d-block w-100" src="assets/<?= h($slider_indicator->url) ?>" class="img-fluid">
+                <li class="<?php if ($slider_indicator->id == '1'): ?>active<?php endif; ?>" data-target="#carousel-thumb" data-slide-to="<?= h($counter++) ?>">
+                    <img class="d-block w-100 img-fluid" src="assets/<?= h($slider_indicator->url) ?>">
                     <span><?= h($slider_indicator->title) ?></span>
                 </li>
             <?php endif; ?>
