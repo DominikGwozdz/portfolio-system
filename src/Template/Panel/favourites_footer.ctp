@@ -17,7 +17,7 @@ $this->layout = 'panel';
 
     <p class="pt-5 pb-5">Wszystkie zdjęcia w stopce:</p>
     <?php foreach($favourites_footer as $favourite): ?>
-        <a href="edit_slider/<?= $favourite->id ?>">
+        <a href="/panel/edit_favourites_footer/<?= $favourite->id ?>">
             <img src="/assets/<?= $favourite->url ?>" class="img-fluid w-25" />
         </a>
     <?php endforeach; ?>
