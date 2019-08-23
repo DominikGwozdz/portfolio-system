@@ -17,7 +17,7 @@ $this->layout = 'panel';
 
     <p class="pt-5 pb-5">Wszystkie zdjęcia w sliderze:</p>
     <?php foreach($top_slider_homepage as $slider): ?>
-        <a href="/panel/edit_favourites_footer/<?= $slider->id ?>">
+        <a href="/panel/edit_slider/<?= $slider->id ?>">
             <img src="/assets/<?= $slider->url ?>" class="img-fluid w-25" />
         </a>
     <?php endforeach; ?>
