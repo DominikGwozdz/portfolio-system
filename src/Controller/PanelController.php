@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Panel Controller
@@ -81,7 +82,30 @@ class PanelController extends AppController
 
     public function updateSlider($id = null)
     {
+        $top_slider_homepage_table = TableRegistry::getTableLocator()->get('TopSliderHomepage');
+        $slider_element = $top_slider_homepage_table->get($id);
 
+        $titleFromForm = $this->request->getData('title');
+        $descriptionFromForm = $this->request->getData('description');
+        $isVisibleFromForm = $this->request->getData('is_visible');
+
+        $slider_element->title = $titleFromForm;
+        $slider_element->description = $descriptionFromForm;
+        $slider_element->is_visible = $isVisibleFromForm;
+
+        $top_slider_homepage_table->save($slider_element);
+
+        $this->redirect('/panel/edit_slider/'. $id);
+    }
+
+    public function removeSlider($id = null) {
+        $top_slider_homepage_table = TableRegistry::getTableLocator()->get('TopSliderHomepage');
+        $slider_element = $top_slider_homepage_table->get($id);
+        $top_slider_homepage_table->delete($slider_element);
+
+        $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
+
+        $this->redirect('/panel/slider/'. $id);
     }
 
 
