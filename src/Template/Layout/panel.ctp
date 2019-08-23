@@ -69,21 +69,20 @@ $cakeDescription = 'Portfolio System';
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Strona Główna
+            Strona
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Górny Slider</span>
+                <span>Strona główna</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Elementy:</h6>
-                    <a class="collapse-item" href="/panel/slider">Zdjęcia</a>
+                    <a class="collapse-item" href="/panel/slider">Górny slider</a>
                     <a class="collapse-item" href="/panel/slider">Wyróżnione zdjęcia</a>
-                    <a class="collapse-item" href="/panel/favourites_footer">Ulubione zdjęcia</a>
                 </div>
             </div>
 
@@ -97,8 +96,8 @@ $cakeDescription = 'Portfolio System';
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Inne</a>
+                    <h6 class="collapse-header">Stopka:</h6>
+                    <a class="collapse-item" href="/panel/favourites_footer">Ulubione zdjęcia</a>
                 </div>
             </div>
         </li>
