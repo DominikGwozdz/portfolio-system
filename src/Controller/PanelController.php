@@ -155,5 +155,42 @@ class PanelController extends AppController
         }
     }
 
+    public function editFavouritesFooter($id = null)
+    {
+        $favourites_footer = $this->loadModel('FavouritesFooter');
+        $favourites_footer = $favourites_footer->findById($id)->first();
+
+        $this->set("favourites_footer", $favourites_footer);
+        $this->render("edit_favourites_footer");
+
+    }
+
+    public function updateFavouritesFooter($id = null)
+    {
+        $favourites_footer_table = TableRegistry::getTableLocator()->get('FavouritesFooter');
+        $single_element = $favourites_footer_table->get($id);
+
+        $isVisibleFromForm = $this->request->getData('is_visible');
+        $single_element->is_visible = $isVisibleFromForm;
+
+        $favourites_footer_table->save($single_element);
+
+        $this->Flash->success(__('Zdjęcie zostało poprawione!'));
+
+        $this->redirect('/panel/edit_favourites_footer/'. $id);
+    }
+
+    public function removeFavouritesFooter($id = null) {
+        $favourites_footer_table = TableRegistry::getTableLocator()->get('FavouritesFooter');
+        $single_element = $favourites_footer_table->get($id);
+        $favourites_footer_table->delete($single_element);
+
+        unlink(WWW_ROOT . '/assets/'. $single_element->url);
+
+        $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
+
+        $this->redirect('/panel/favourites_footer/');
+    }
+
 
 }
