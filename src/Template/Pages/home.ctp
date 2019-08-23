@@ -35,7 +35,7 @@
 
 <section id="portfolio">
     <div class="container">
-        <h2>Wyróżnione zdjęcia</h2>
+        <h2>Wyróżnione zdjęcia (tutaj będą wyróżnione w galeriach)</h2>
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
