@@ -251,7 +251,6 @@ nav {
     height: 150px;
     width: 270px;
     z-index: 9;
-    outline: 1px solid #000000;
 }
 
 .carousel-thumbnails ol li img {
@@ -725,7 +724,7 @@ footer .img-thumbnail {
 }
 .d-block img {
   max-width: 100%;
-  
+
   -moz-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
