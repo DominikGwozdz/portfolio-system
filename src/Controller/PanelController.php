@@ -48,6 +48,9 @@ class PanelController extends AppController
         $uploadPath = 'assets/top_slider_homepage/';
         if(!empty($imageSentFromForm) && !empty($titleFromForm) && !empty($descriptionFromForm)) {
             $imageName = $imageSentFromForm['name'];
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName = strtolower($imageName);
+
             $pathToUploadedImage = $uploadPath.$imageName;
             if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
             {
@@ -107,7 +110,7 @@ class PanelController extends AppController
 
         $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
 
-        $this->redirect('/panel/slider/'. $id);
+        $this->redirect('/panel/slider/');
     }
 
 
