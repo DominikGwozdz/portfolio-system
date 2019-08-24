@@ -194,5 +194,11 @@ class PanelController extends AppController
         $this->render('about');
     }
 
+    public function editAbout()
+    {
+        //upload photo and send description here
+        $this->render('about');
+    }
+
 
 }
