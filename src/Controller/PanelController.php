@@ -22,13 +22,9 @@ class PanelController extends AppController
 
     public function index()
     {
-
+        $this->render('index');
     }
 
-    public function login()
-    {
-
-    }
     public function slider()
     {
         $top_slider_homepage = $this->loadModel('TopSliderHomepage');
@@ -190,6 +186,12 @@ class PanelController extends AppController
         $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
 
         $this->redirect('/panel/favourites_footer/');
+    }
+
+    //about me
+    public function about()
+    {
+        $this->render('about');
     }
 
 
