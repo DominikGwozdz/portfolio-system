@@ -69,7 +69,7 @@ $cakeDescription = 'Portfolio System';
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Strona
+            Ogólne
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -82,17 +82,41 @@ $cakeDescription = 'Portfolio System';
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Elementy:</h6>
                     <a class="collapse-item" href="/panel/slider">Górny slider</a>
-                    <a class="collapse-item" href="/panel/slider">Wyróżnione zdjęcia</a>
+                    <a class="collapse-item" href="/panel/slider">Wyróżnione zdjęcia (brak)</a>
                 </div>
             </div>
 
         </li>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            O mnie
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="/panel/about">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>O mnie</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Inne
+        </div>
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Pozostałe</span>
+                <span>Inne</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
