@@ -27,7 +27,7 @@ $this->layout = 'panel';
     <?= $this->Form->create("favourites_footer", ['url' => '/panel/favourites_upload', 'enctype' => 'multipart/form-data']) ?>
     <?= $this->Form->control('image_path', ['type' => 'file', 'label' => __('Wybierz zdjęcie: ')]) ?>
     <?= $this->Form->control('is_visible', ['type' => 'checkbox', 'label' => __('Czy ma być widoczne? (Tak/Nie)')]) ?>
-    <?= $this->Form->control('Wyślij zdjęcie', ['type' => 'submit']) ?>
+    <?= $this->Form->control('Wyślij zdjęcie', ['type' => 'submit', 'class' => 'btn btn-success']) ?>
     <?= $this->Form->end() ?>
 </div>
 <!-- /.container-fluid -->
