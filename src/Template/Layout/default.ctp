@@ -55,7 +55,7 @@ $cakeDescription = 'Portfolio System';
                     <a class="nav-link" href="/">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/omnie">O mnie</a>
+                    <a class="nav-link" href="/about">O mnie</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/galeria">Galeria </a>
