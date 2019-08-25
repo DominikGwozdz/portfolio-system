@@ -191,13 +191,45 @@ class PanelController extends AppController
     //about me
     public function about()
     {
+        $about_me = $this->loadModel('AboutMe');
+        $about_me = $about_me->findById(1)->first();
+
+        $this->set("about_me", $about_me);
+
         $this->render('about');
     }
 
     public function editAbout()
     {
-        //upload photo and send description here
-        $this->render('about');
+        $this->loadModel('AboutMe');
+        $descriptionSentFromForm = $this->request->getData(['description']);
+        $imageSentFromForm = $this->request->getData(['image_path']);
+        $uploadPath = 'assets/about_me/';
+        if(!empty($imageSentFromForm)) {
+            $imageName = $imageSentFromForm['name'];
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName = strtolower($imageName);
+
+            $pathToUploadedImage = $uploadPath.$imageName;
+            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
+            {
+                $about_me_table = TableRegistry::getTableLocator()->get('AboutMe');
+                $single_element = $about_me_table->get(1);
+
+                $single_element->photo = 'about_me/' . $imageName;
+                $single_element->description = $descriptionSentFromForm;
+
+                if($this->AboutMe->save($single_element))
+                {
+                    $this->Flash->success(__('Strona o mnie została zaktualizowana!'));
+                } else {
+                    $this->Flash->error(__('Wystąpił błąd!'));
+                }
+
+                $this->redirect('/panel/about/');
+            }
+
+        }
     }
 
 

@@ -15,10 +15,14 @@ $this->layout = 'panel';
         <?= $this->Flash->render() ?>
     </div>
 
+    <div class="mt-4 mb-4">Podgląd:</div>
+    <img src="/assets/<?= h($about_me->photo) ?>" />
+        <?= $about_me->description ?>
+
 
         <?= $this->Form->create("about_me", ['url' => '/panel/edit_about', 'enctype' => 'multipart/form-data']) ?>
         <?= $this->Form->control('image_path', ['type' => 'file', 'class' => 'form-control-file', 'label' => __('Wybierz zdjęcie: ')]) ?>
-        <?= $this->Form->control('description', ['type' => 'textarea', 'class' => 'form-control', 'label' => __('Twój opis')]) ?>
+        <?= $this->Form->control('description', ['type' => 'textarea', 'class' => 'form-control', 'label' => __('Twój opis'), 'value' => $about_me->description]) ?>
         <?= $this->Form->control('Zapisz', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
         <?= $this->Form->end() ?>
 
