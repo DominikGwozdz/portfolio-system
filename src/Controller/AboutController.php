@@ -8,7 +8,7 @@ use Cake\ORM\TableRegistry;
  * About Controller
  *
  *
- * @method \App\Model\Entity\Panel[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\About[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class AboutController extends AppController
 {
