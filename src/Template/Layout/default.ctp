@@ -51,17 +51,17 @@ $cakeDescription = 'Portfolio System';
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item <?php if($this->request->getParam('controller') == 'Pages'): ?>active<?php endif; ?>">
                     <a class="nav-link" href="/">Strona Główna</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?php if($this->request->getParam('controller') == 'About'): ?>active<?php endif; ?>">
                     <a class="nav-link" href="/about">O mnie</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/galeria">Galeria </a>
+                <li class="nav-item <?php if($this->request->getParam('controller') == 'Gallery'): ?>active<?php endif; ?>">
+                    <a class="nav-link" href="/gallery">Galeria </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/kontakt">Kontakt </a>
+                <li class="nav-item <?php if($this->request->getParam('controller') == 'Contact'): ?>active<?php endif; ?>">
+                    <a class="nav-link" href="/contact">Kontakt </a>
                 </li>
             </ul>
         </div>
@@ -98,13 +98,13 @@ $cakeDescription = 'Portfolio System';
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a href="index.html">Strona Główna</a></li>
+                            <li><a href="/">Strona Główna</a></li>
                             <li class="hidden">/</li>
-                            <li><a href="about.html">O mnie</a></li>
+                            <li><a href="about">O mnie</a></li>
                             <li class="hidden">/</li>
-                            <li><a href="mystories.html">Galeria</a></li>
+                            <li><a href="gallery">Galeria</a></li>
                             <li class="hidden">/</li>
-                            <li><a href="destinations.html">Kontakt</a></li>
+                            <li><a href="contact">Kontakt</a></li>
                         </ul>
                     </div>
                     <div class="col-md-12">
