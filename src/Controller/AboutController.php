@@ -5,7 +5,7 @@ use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 
 /**
- * Panel Controller
+ * About Controller
  *
  *
  * @method \App\Model\Entity\Panel[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
