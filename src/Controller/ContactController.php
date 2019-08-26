@@ -24,7 +24,4 @@ class ContactController extends AppController
         $this->render('index');
     }
 
-
-
-
 }
