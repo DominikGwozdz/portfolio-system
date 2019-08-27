@@ -46,6 +46,11 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        //send favourites footer to all templates
+        $favourites_footer = $this->loadModel('FavouritesFooter');
+        $favourites_footer = $favourites_footer->find();
+        $this->set("favourites_footer", $favourites_footer);
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
