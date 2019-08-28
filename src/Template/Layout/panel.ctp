@@ -69,14 +69,14 @@ $cakeDescription = 'Portfolio System';
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Ogólne
+            Strona Główna
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Strona główna</span>
+                <span>Ustaw strone główną</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -106,6 +106,32 @@ $cakeDescription = 'Portfolio System';
 
         <!-- Divider -->
         <hr class="sidebar-divider">
+
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Galeria
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Ustaw Galerie</span>
+            </a>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Elementy:</h6>
+                    <a class="collapse-item" href="/panel/categories_gallery">Kategorie</a>
+                    <a class="collapse-item" href="/panel/galleries">Galerie</a>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
         <!-- Heading -->
         <div class="sidebar-heading">
