@@ -237,7 +237,28 @@ class PanelController extends AppController
     }
 
     // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
-    // G A L L E R Y
+    // C A T E G O R I E S G A L L E R Y
+    public function categoriesGallery()
+    {
+        $categories_gallery = $this->loadModel('GalleryCategory');
+        $categories_gallery = $categories_gallery->find();
+
+        $this->set("categories_gallery", $categories_gallery);
+
+
+        $this->render('categories_gallery');
+    }
+
+    public function editCategory($id = null)
+    {
+        $categories_gallery = $this->loadModel('GalleryCategory');
+        $single_category = $categories_gallery->findById($id)->first();
+
+        $this->set("single_category", $single_category);
+        $this->render("edit_favourites_footer");
+
+        $this->render('edit_category');
+    }
 
 
 
