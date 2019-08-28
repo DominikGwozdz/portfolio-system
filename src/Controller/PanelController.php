@@ -25,6 +25,8 @@ class PanelController extends AppController
         $this->render('index');
     }
 
+    // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
+    // T O P S L I D E R H O M E P A G E
     public function slider()
     {
         $top_slider_homepage = $this->loadModel('TopSliderHomepage');
@@ -109,7 +111,8 @@ class PanelController extends AppController
         $this->redirect('/panel/slider/');
     }
 
-    //favourites footer
+    // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
+    // F A V O U R I T E F O O T E R
     public function favouritesFooter() {
         $favourites_footer = $this->loadModel('FavouritesFooter');
         $favourites_footer = $favourites_footer->find();
@@ -188,7 +191,8 @@ class PanelController extends AppController
         $this->redirect('/panel/favourites_footer/');
     }
 
-    //about me
+    // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
+    // A B O U T M E
     public function about()
     {
         $about_me = $this->loadModel('AboutMe');
@@ -231,6 +235,11 @@ class PanelController extends AppController
 
         }
     }
+
+    // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
+    // G A L L E R Y
+
+
 
 
 }
