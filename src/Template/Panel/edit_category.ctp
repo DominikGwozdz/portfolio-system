@@ -48,7 +48,7 @@ $this->layout = 'panel';
     <div class="mt-5">
         <hr />
         <p class="font-weight-bold h3">Edycja kategorii:</p>
-        <?= $this->Form->create("categories_gallery", ['url' => '/panel/edit_existing_category/', 'enctype' => 'multipart/form-data']) ?>
+        <?= $this->Form->create("categories_gallery", ['url' => '/panel/edit_existing_category/' . $single_category->id, 'enctype' => 'multipart/form-data']) ?>
         <?= $this->Form->control('name', ['type' => 'text', 'class' => 'form-control mb-4', 'label' => __('Nazwa kategorii'), 'value' => $single_category->name]) ?>
         <?= $this->Form->control('image_path', ['type' => 'file', 'class' => 'form-control-file pt-3 pb-3', 'label' => __('Obrazek okładki dla kategorii')]) ?>
         <?= $this->Form->control('is_visible', ['type' => 'checkbox', 'label' => __('Czy ma być widoczna? (Tak/Nie)'), 'checked' => $single_category->is_visible]) ?>
