@@ -56,5 +56,8 @@ $this->layout = 'panel';
         <?= $this->Form->end() ?>
     </div>
 
+    <p class="mt-5">Usuwanie zdjęcia</p>
+    <a href="/panel/remove_existing_category/<?= $single_category->id ?>" class="btn btn-danger mb-5">Usuń ta kategorie</a>
+
 </div>
 <!-- /.container-fluid -->

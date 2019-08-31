@@ -313,6 +313,21 @@ class PanelController extends AppController
         $this->redirect('/panel/categories_gallery');
     }
 
+    public function removeExistingCategory($id = null) {
+        $categories_gallery_table = TableRegistry::getTableLocator()->get('GalleryCategory');
+        $category_element = $categories_gallery_table->get($id);
+        $categories_gallery_table->delete($category_element);
+
+        try {
+            unlink(WWW_ROOT . '/assets/'. $category_element->url);
+        } catch (\Exception $e) {}
+
+
+        $this->Flash->success(__('Kategoria została poprawnie usunięta!'));
+
+        $this->redirect('/panel/categories_gallery');
+    }
+
 
 
 
