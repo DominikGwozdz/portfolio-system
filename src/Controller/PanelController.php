@@ -284,9 +284,9 @@ class PanelController extends AppController
                 $saveInDb->is_visible = $isVisibleFromForm;
                 if($this->GalleryCategory->save($saveInDb))
                 {
-                    $this->Flash->success(__('Zdjęcie zostało poprawnie załadowane!'));
+                    $this->Flash->success(__('Kategoria została dodana!'));
                 } else {
-                    $this->Flash->error(__('Nie udało się wgrac zdjęcia!'));
+                    $this->Flash->error(__('Nie udało się dodać kategorii!'));
                 }
 
             }
