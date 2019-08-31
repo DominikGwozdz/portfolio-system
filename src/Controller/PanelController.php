@@ -264,13 +264,13 @@ class PanelController extends AppController
     {
         $this->loadModel('GalleryCategory');
         $imageSentFromForm = $this->request->getData('image_path');
-        $titleFromForm = $this->request->getData('title');
+        $nameFromForm = $this->request->getData('name');
         $isVisibleFromForm = $this->request->getData('is_visible');
         if(empty($isVisibleFromForm)) {
             $isVisibleFromForm = '0';
         }
         $uploadPath = 'assets/categories_gallery/';
-        if(!empty($imageSentFromForm) && !empty($titleFromForm)) {
+        if(!empty($imageSentFromForm) && !empty($nameFromForm)) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -279,7 +279,7 @@ class PanelController extends AppController
             if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
             {
                 $saveInDb = $this->GalleryCategory->newEntity();
-                $saveInDb->title = $titleFromForm;
+                $saveInDb->name = $nameFromForm;
                 $saveInDb->url = 'categories_gallery/' . $imageName;
                 $saveInDb->is_visible = $isVisibleFromForm;
                 if($this->GalleryCategory->save($saveInDb))
