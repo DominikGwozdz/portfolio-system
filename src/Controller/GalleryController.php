@@ -21,6 +21,11 @@ class GalleryController extends AppController
 
     public function index()
     {
+        $gallery_category = $this->loadModel('GalleryCategory');
+        $gallery_category = $gallery_category->find();
+
+        $this->set("gallery_category", $gallery_category);
+
         $this->render('index');
     }
 

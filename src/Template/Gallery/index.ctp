@@ -22,30 +22,16 @@ $this->layout = 'default';
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
-                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
-                        <div class="overlay">
-                            <div class="text">Sesje noworodkowe</div>
-                        </div>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
-                        <div class="overlay">
-                            <div class="text">Piękna natura</div>
-                        </div>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
-                        <div class="overlay">
-                            <div class="text">Sesja znajomych</div>
-                        </div>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                        <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                        <div class="overlay">
-                            <div class="text">Śluby</div>
-                        </div>
-                    </a>
+                    <?php foreach ($gallery_category as $single_category): ?>
+                        <?php if ($single_category->is_visible == '1'): ?>
+                            <a href="#" class="col-xl-3 col-md-4 box-2">
+                                <img src="/assets/<?= h($single_category->url) ?>" class="img-fluid">
+                                <div class="overlay">
+                                    <div class="text"><?= h($single_category->name) ?></div>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
