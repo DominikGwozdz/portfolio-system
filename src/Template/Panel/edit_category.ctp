@@ -52,7 +52,7 @@ $this->layout = 'panel';
         <?= $this->Form->control('name', ['type' => 'text', 'class' => 'form-control mb-4', 'label' => __('Nazwa kategorii'), 'value' => $single_category->name]) ?>
         <?= $this->Form->control('image_path', ['type' => 'file', 'class' => 'form-control-file pt-3 pb-3', 'label' => __('Obrazek okładki dla kategorii')]) ?>
         <?= $this->Form->control('is_visible', ['type' => 'checkbox', 'label' => __('Czy ma być widoczna? (Tak/Nie)'), 'checked' => $single_category->is_visible]) ?>
-        <?= $this->Form->control('Dodaj kategorię', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
+        <?= $this->Form->control('Zapisz zmiany', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
         <?= $this->Form->end() ?>
     </div>
 
