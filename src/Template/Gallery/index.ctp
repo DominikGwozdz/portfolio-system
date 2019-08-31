@@ -10,7 +10,7 @@ $this->layout = 'default';
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Galeria</h3>
+                <h3>Galeria - kategorie</h3>
             </div>
         </div>
     </div>
