@@ -296,6 +296,23 @@ class PanelController extends AppController
         $this->redirect('/panel/categories_gallery');
     }
 
+    public function editExistingCategory($id = null)
+    {
+        $this->loadModel('GalleryCategory');
+        $categories_gallery_table = TableRegistry::getTableLocator()->get('GalleryCategory');
+        $category_element = $categories_gallery_table->get($id);
+
+        $nameFromForm = $this->request->getData('name');
+        $isVisibleFromForm = $this->request->getData('is_visible');
+
+        $category_element->name = $nameFromForm;
+        $category_element->is_visible = $isVisibleFromForm;
+
+        $categories_gallery_table->save($category_element);
+
+        $this->redirect('/panel/categories_gallery');
+    }
+
 
 
 
