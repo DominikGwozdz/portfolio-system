@@ -260,6 +260,42 @@ class PanelController extends AppController
         $this->render('edit_category');
     }
 
+    public function addNewCategory()
+    {
+        $this->loadModel('GalleryCategory');
+        $imageSentFromForm = $this->request->getData('image_path');
+        $titleFromForm = $this->request->getData('title');
+        $isVisibleFromForm = $this->request->getData('is_visible');
+        if(empty($isVisibleFromForm)) {
+            $isVisibleFromForm = '0';
+        }
+        $uploadPath = 'assets/categories_gallery/';
+        if(!empty($imageSentFromForm) && !empty($titleFromForm)) {
+            $imageName = $imageSentFromForm['name'];
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName = strtolower($imageName);
+
+            $pathToUploadedImage = $uploadPath.$imageName;
+            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
+            {
+                $saveInDb = $this->GalleryCategory->newEntity();
+                $saveInDb->title = $titleFromForm;
+                $saveInDb->url = 'categories_gallery/' . $imageName;
+                $saveInDb->is_visible = $isVisibleFromForm;
+                if($this->GalleryCategory->save($saveInDb))
+                {
+                    $this->Flash->success(__('Zdjęcie zostało poprawnie załadowane!'));
+                } else {
+                    $this->Flash->error(__('Nie udało się wgrac zdjęcia!'));
+                }
+
+            }
+
+        }
+
+        $this->redirect('/panel/categories_gallery');
+    }
+
 
 
 
