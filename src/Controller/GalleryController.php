@@ -29,4 +29,9 @@ class GalleryController extends AppController
         $this->render('index');
     }
 
+    public function show($id = null)
+    {
+        $this->render('show');
+    }
+
 }
