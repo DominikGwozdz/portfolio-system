@@ -46,5 +46,17 @@ $this->layout = 'panel';
 
     </table>
 
+    <div class="mt-5">
+        <hr />
+        <p class="font-weight-bold h3">Dodawanie kategorii:</p>
+        <?= $this->Form->create("categories_gallery", ['url' => '/panel/add_new_category/']) ?>
+        <?= $this->Form->control('title', ['type' => 'text', 'class' => 'form-control mb-4', 'label' => __('Nazwa kategorii')]) ?>
+        <?= $this->Form->control('image_path', ['type' => 'file', 'class' => 'form-control-file pt-3 pb-3', 'label' => __('Obrazek okładki dla kategorii')]) ?>
+        <?= $this->Form->control('is_visible', ['type' => 'checkbox', 'label' => __('Czy ma być widoczna? (Tak/Nie)')]) ?>
+        <?= $this->Form->control('Dodaj kategorię', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
+        <?= $this->Form->end() ?>
+    </div>
+
+
 </div>
 <!-- /.container-fluid -->
