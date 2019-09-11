@@ -328,7 +328,23 @@ class PanelController extends AppController
         $this->redirect('/panel/categories_gallery');
     }
 
+    // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
+    // G A L L E R I E S
+    public function galleries()
+    {
+        $galleries = $this->loadModel('Gallery');
+        $categories_gallery = $this->loadModel('GalleryCategory');
 
+        $categories_gallery = $categories_gallery->find();
+        $galleries = $galleries->find();
 
+        $cat_array = [];
+        foreach ($categories_gallery as $category) {
+            array_push($cat_array,['value' => $category->id, 'text' => $category->name]);
+        }
+        $this->set("categories_gallery", $cat_array);
+        $this->set("galleries", $galleries);
 
+        $this->render('galleries');
+    }
 }
