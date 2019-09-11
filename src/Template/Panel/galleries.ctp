@@ -53,7 +53,7 @@ $this->layout = 'panel';
         <?= $this->Form->control('name', ['type' => 'text', 'class' => 'form-control mb-4', 'label' => __('Nazwa galerii')]) ?>
         <?= $this->Form->control('is_visible', ['type' => 'checkbox', 'label' => __('Czy ma być widoczna? (Tak/Nie)')]) ?>
         Kategoria: <?= $this->Form->select('category', $categories_gallery) ?>
-        <?= $this->Form->control('Dodaj kategorię', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
+        <?= $this->Form->control('Dodaj galerie', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
         <?= $this->Form->end() ?>
     </div>
 
