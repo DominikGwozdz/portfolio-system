@@ -347,4 +347,40 @@ class PanelController extends AppController
 
         $this->render('galleries');
     }
+
+    public function addNewGallery()
+    {
+        $this->loadModel('Gallery');
+        $nameFromForm = $this->request->getData('name');
+        $isVisibleFromForm = $this->request->getData('is_visible');
+        if(empty($isVisibleFromForm)) {
+            $isVisibleFromForm = '0';
+        }
+
+        if(!empty($nameFromForm)) {
+
+            $saveInDb = $this->Gallery->newEntity();
+            $saveInDb->name = $nameFromForm;
+
+            $nameFromForm = str_replace(' ','_',$nameFromForm);
+            $nameFromForm = strtolower($nameFromForm);
+            $saveInDb->directory = $nameFromForm . '_sesja/';
+
+            $saveInDb->is_visible = $isVisibleFromForm;
+            if($this->Gallery->save($saveInDb))
+            {
+                $this->Flash->success(__('Galeria została dodana!'));
+            } else {
+                $this->Flash->error(__('Nie udało się dodać galerii!'));
+            }
+
+        }
+
+        $this->redirect('/panel/galleries');
+    }
+
+    public function editGallery($id = null)
+    {
+        $this->render('editGallery');
+    }
 }

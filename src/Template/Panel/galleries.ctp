@@ -23,9 +23,8 @@ $this->layout = 'panel';
         <tr>
             <th scope="col">Numer galerii</th>
             <th scope="col">Nazwa</th>
-            <th scope="col">Opis</th>
             <th scope="col">Czy widoczna?</th>
-            <th scope="col">Nazwa folderu</th>
+            <th scope="col">Kategoria</th>
             <th scope="col">Edycja</th>
         </tr>
         </thead>
@@ -34,9 +33,8 @@ $this->layout = 'panel';
             <tr>
                 <th scope="row"><?= h($gallery->id) ?></th>
                 <td><?= h($gallery->name) ?></td>
-                <td><?= h($gallery->description) ?></td>
                 <td><?php if($gallery->is_visible == '1'): ?>Tak<?php else: ?>Nie<?php endif; ?></td>
-                <td><?= h($gallery->directory) ?></td>
+                <td>To trzeba zaprogramować</td>
                 <td><a href="/panel/edit_gallery/<?= h($gallery->id) ?>">Zmień</a></td>
             </tr>
         <?php endforeach; ?>
