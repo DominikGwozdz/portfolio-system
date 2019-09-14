@@ -381,6 +381,11 @@ class PanelController extends AppController
 
     public function editGallery($id = null)
     {
-        $this->render('editGallery');
+        $gallery = $this->loadModel('Gallery');
+        $single_gallery = $gallery->findById($id)->first();
+
+        $this->set("single_gallery", $single_gallery);
+
+        $this->render('edit_gallery');
     }
 }
