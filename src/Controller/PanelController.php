@@ -353,6 +353,7 @@ class PanelController extends AppController
         $this->loadModel('Gallery');
         $nameFromForm = $this->request->getData('name');
         $isVisibleFromForm = $this->request->getData('is_visible');
+        $categoryIdFromForm = $this->request->getData('category');
         if(empty($isVisibleFromForm)) {
             $isVisibleFromForm = '0';
         }
@@ -367,6 +368,7 @@ class PanelController extends AppController
             $saveInDb->directory = 'gallery/' . $hashed_directory_name . '/';
 
             $saveInDb->is_visible = $isVisibleFromForm;
+            $saveInDb->category_id = $categoryIdFromForm;
             if($this->Gallery->save($saveInDb))
             {
                 $this->Flash->success(__('Galeria została dodana!'));
