@@ -362,9 +362,9 @@ class PanelController extends AppController
             $saveInDb = $this->Gallery->newEntity();
             $saveInDb->name = $nameFromForm;
 
-            $nameFromForm = str_replace(' ','_',$nameFromForm);
-            $nameFromForm = strtolower($nameFromForm);
-            $saveInDb->directory = $nameFromForm . '_sesja/';
+            //always generate random chars (by generating timestamp which every second is unique and hash it with md5)
+            $hashed_directory_name = md5(time());
+            $saveInDb->directory = 'gallery/' . $hashed_directory_name . '/';
 
             $saveInDb->is_visible = $isVisibleFromForm;
             if($this->Gallery->save($saveInDb))
@@ -387,5 +387,38 @@ class PanelController extends AppController
         $this->set("single_gallery", $single_gallery);
 
         $this->render('edit_gallery');
+    }
+
+    public function updateGallery($id = null)
+    {
+        $this->loadModel('Gallery');
+        $this->loadModel('GalleryItem');
+
+        $imageSentFromForm = $this->request->getData(['image_path']);
+        $uploadPath = 'assets/about_me/';
+        if(!empty($imageSentFromForm)) {
+            $imageName = $imageSentFromForm['title'];
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName = strtolower($imageName);
+
+            $pathToUploadedImage = $uploadPath.$imageName;
+            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
+            {
+                $about_me_table = TableRegistry::getTableLocator()->get('AboutMe');
+                $single_element = $about_me_table->get(1);
+
+                $single_element->photo = 'about_me/' . $imageName;
+
+                if($this->AboutMe->save($single_element))
+                {
+                    $this->Flash->success(__('Dodano wszystkie zdjęcia!'));
+                } else {
+                    $this->Flash->error(__('Wystąpił błąd przy dodawaniu zdjęć!'));
+                }
+
+                $this->redirect('/panel/edit_gallery/' . $id);
+            }
+
+        }
     }
 }
