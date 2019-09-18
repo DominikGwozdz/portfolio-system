@@ -385,40 +385,55 @@ class PanelController extends AppController
     {
         $gallery = $this->loadModel('Gallery');
         $single_gallery = $gallery->findById($id)->first();
-
         $this->set("single_gallery", $single_gallery);
+
+        $gallery_item = $this->loadModel('GalleryItem');
+        $gallery_items = $gallery_item->findByGalleryId($id);
+        $this->set("gallery_items", $gallery_items);
 
         $this->render('edit_gallery');
     }
 
     public function updateGallery($id = null)
     {
-        $this->loadModel('Gallery');
-        $this->loadModel('GalleryItem');
+        $gallery = $this->loadModel('Gallery');
+        $single_gallery = $gallery->findById($id)->first();
+        $this->set("single_gallery", $single_gallery);
 
+        $gallery_item = $this->loadModel('GalleryItem');
+        $gallery_items = $gallery_item->findByGalleryId($id);
+        $this->set("gallery_items", $gallery_items);
+
+        $this->render('edit_gallery');
+
+        $titleSentFromForm = $this->request->getData('title');
         $imageSentFromForm = $this->request->getData(['image_path']);
-        $uploadPath = 'assets/about_me/';
+        $gallery_table = TableRegistry::getTableLocator()->get('Gallery');
+        $existing_gallery = $gallery_table->get($id);
+
+
         if(!empty($imageSentFromForm)) {
-            $imageName = $imageSentFromForm['title'];
+            $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
 
-            $pathToUploadedImage = $uploadPath.$imageName;
-            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
+            $pathToUploadedImage = $existing_gallery->directory.$imageName;
+            $pathToUploadedImage_physicaly = 'assets/' . $pathToUploadedImage;
+            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage_physicaly))
             {
-                $about_me_table = TableRegistry::getTableLocator()->get('AboutMe');
-                $single_element = $about_me_table->get(1);
+                $gallery_item_table = $this->GalleryItem->newEntity();
+                $gallery_item_table->name = $titleSentFromForm;
+                $gallery_item_table->url = $pathToUploadedImage;
+                $gallery_item_table->is_highlighted = 0;
+                $gallery_item_table->gallery_id = $existing_gallery->id;
 
-                $single_element->photo = 'about_me/' . $imageName;
-
-                if($this->AboutMe->save($single_element))
+                if($this->GalleryItem->save($gallery_item_table))
                 {
-                    $this->Flash->success(__('Dodano wszystkie zdjęcia!'));
+                    $this->Flash->success(__('Dodano zdjęcie do galerii!'));
                 } else {
-                    $this->Flash->error(__('Wystąpił błąd przy dodawaniu zdjęć!'));
+                    $this->Flash->error(__('Wystąpił błąd przy dodawaniu zdjęcia!'));
                 }
 
-                $this->redirect('/panel/edit_gallery/' . $id);
             }
 
         }
