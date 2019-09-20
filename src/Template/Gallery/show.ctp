@@ -22,10 +22,8 @@ $this->layout = 'default';
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
-                    <!-- THIS ENTIRE FOREACH NEEDS TO BE REPAIRED -->
                     <?php foreach($galleries as $gallery) : ?>
-                        <?= h($gallery->name) ?>
-                        <a href="/gallery/show/ <?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
+                        <a href="/gallery/items/ <?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
                             <img src="/assets/<?= h($gallery->url) ?>" class="img-fluid">
                             <div class="overlay">
                                 <div class="text"><?= h($gallery->name) ?></div>
