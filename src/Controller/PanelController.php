@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Filesystem\Folder;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -366,6 +367,11 @@ class PanelController extends AppController
             //always generate random chars (by generating timestamp which every second is unique and hash it with md5)
             $hashed_directory_name = md5(time());
             $saveInDb->directory = 'gallery/' . $hashed_directory_name . '/';
+
+            $directory_of_gallery = WWW_ROOT . 'assets/gallery/' . $hashed_directory_name;
+            if(!file_exists($directory_of_gallery)) {
+                $folder = new Folder($directory_of_gallery, true, 0755);
+            }
 
             $saveInDb->is_visible = $isVisibleFromForm;
             $saveInDb->category_id = $categoryIdFromForm;
