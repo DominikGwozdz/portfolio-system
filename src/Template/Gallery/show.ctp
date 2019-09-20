@@ -10,7 +10,7 @@ $this->layout = 'default';
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Galeria</h3>
+                <h3>Galeria - <?= h($gallery_category->name) ?></h3>
             </div>
         </div>
     </div>
@@ -22,7 +22,16 @@ $this->layout = 'default';
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
-                    No i tutaj bedzie juz Galleries
+                    <!-- THIS ENTIRE FOREACH NEEDS TO BE REPAIRED -->
+                    <?php foreach($galleries as $gallery) : ?>
+                        <?= h($gallery->name) ?>
+                        <a href="/gallery/show/ <?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
+                            <img src="/assets/<?= h($gallery->url) ?>" class="img-fluid">
+                            <div class="overlay">
+                                <div class="text"><?= h($gallery->name) ?></div>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

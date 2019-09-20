@@ -31,6 +31,15 @@ class GalleryController extends AppController
 
     public function show($id = null)
     {
+        //send info about category name to view
+        $gallery_category = $this->loadModel('GalleryCategory');
+        $gallery_category = $gallery_category->findById($id)->first();
+        $this->set("gallery_category", $gallery_category);
+
+        $galleries = $this->loadModel('Gallery');
+        $galleries = $galleries->findByCategoryId($id);
+        $this->set("galleries", $galleries);
+
         $this->render('show');
     }
 
