@@ -16,9 +16,10 @@ $this->layout = 'panel';
     </div>
 
     <div class="mt-4 mb-4">Podgląd:</div>
-    <img src="/assets/<?= h($about_me->photo) ?>" />
+    <img src="/assets/<?= h($about_me->photo) ?>" class="img-fluid w-25 text-center" /><br />
+    <p>
         <?= $about_me->description ?>
-
+    </p>
 
         <?= $this->Form->create("about_me", ['url' => '/panel/edit_about', 'enctype' => 'multipart/form-data']) ?>
         <?= $this->Form->control('image_path', ['type' => 'file', 'class' => 'form-control-file', 'label' => __('Wybierz zdjęcie: ')]) ?>
