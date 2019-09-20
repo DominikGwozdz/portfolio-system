@@ -44,7 +44,7 @@ $cakeDescription = 'Portfolio System';
 <nav class="navbar navbar-expand-lg navbar-dark cyan fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="images/nav-logo.png" alt="nav-logo">
+            <img src="/images/nav-logo.png" alt="nav-logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
