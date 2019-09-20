@@ -82,7 +82,7 @@ $cakeDescription = 'Portfolio System';
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Elementy:</h6>
                     <a class="collapse-item" href="/panel/slider">Górny slider</a>
-                    <a class="collapse-item" href="/panel/slider">Wyróżnione zdjęcia (brak)</a>
+<!--                    <a class="collapse-item" href="/panel/slider">Zawartość</a>-->
                 </div>
             </div>
 
