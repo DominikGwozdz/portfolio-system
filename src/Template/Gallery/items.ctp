@@ -18,6 +18,7 @@ $this->layout = 'default';
 
 <section id="portfolio">
     <div class="container">
+        <a href="/gallery/show/<?= h($gallery->category_id) ?>" class="text-muted d-flex mb-4"> <- Wróć do kategorii <strong class="ml-1"><?= h($gallery->name) ?></strong></a>
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
