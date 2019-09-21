@@ -271,7 +271,7 @@ class PanelController extends AppController
             $isVisibleFromForm = '0';
         }
         $uploadPath = 'assets/categories_gallery/';
-        if(!empty($imageSentFromForm) && !empty($nameFromForm)) {
+        if(!empty($imageSentFromForm['name']) && !empty($nameFromForm)) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -292,6 +292,8 @@ class PanelController extends AppController
 
             }
 
+        } else {
+            $this->Flash->error(__('Nie udało się dodać kategorii z powodu braku nazwy lub zdjęcia!'));
         }
 
         $this->redirect('/panel/categories_gallery');
@@ -373,7 +375,7 @@ class PanelController extends AppController
                 $folder = new Folder($directory_of_gallery, true, 0755);
             }
 
-            if(!empty($imageSentFromForm))
+            if(!empty($imageSentFromForm['name']))
             {
                 $uploadPath = 'gallery/' . $hashed_directory_name . '/';
                 $imageName = $imageSentFromForm['name'];
@@ -396,6 +398,8 @@ class PanelController extends AppController
                 $this->Flash->error(__('Nie udało się dodać galerii!'));
             }
 
+        } else {
+            $this->Flash->error(__('Nie udało się dodać galerii z powodu braku nazwy!'));
         }
 
         $this->redirect('/panel/galleries');
@@ -429,7 +433,7 @@ class PanelController extends AppController
         $existing_gallery = $gallery_table->get($id);
 
 
-        if(!empty($imageSentFromForm)) {
+        if(!empty($imageSentFromForm['name'])) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -476,7 +480,7 @@ class PanelController extends AppController
         $existing_gallery = $gallery_table->get($id);
 
         $imageSentFromForm = $this->request->getData(['image_path']);
-        if(!empty($imageSentFromForm)) {
+        if(!empty($imageSentFromForm['name'])) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -493,6 +497,8 @@ class PanelController extends AppController
                 $this->Flash->error(__('Wystąpił błąd przy dodawaniu zdjęcia!'));
             }
 
+        } else {
+            $this->Flash->error(__('Nie wybrano zdjęcia!'));
         }
 
         $this->redirect('/panel/edit_gallery_label/' . $id);
