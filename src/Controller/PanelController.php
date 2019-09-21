@@ -411,6 +411,14 @@ class PanelController extends AppController
         $single_gallery = $gallery->findById($id)->first();
         $this->set("single_gallery", $single_gallery);
 
+        $categories_gallery = $this->loadModel('GalleryCategory');
+        $categories_gallery = $categories_gallery->find();
+        $cat_array = [];
+        foreach ($categories_gallery as $category) {
+            array_push($cat_array,['value' => $category->id, 'text' => $category->name]);
+        }
+        $this->set("categories_gallery", $cat_array);
+
         $gallery_item = $this->loadModel('GalleryItem');
         $gallery_items = $gallery_item->findByGalleryId($id);
         $this->set("gallery_items", $gallery_items);
@@ -470,6 +478,33 @@ class PanelController extends AppController
         $this->set("gallery", $gallery);
 
         $this->render('edit_gallery_label');
+    }
+
+    public function editGalleryData($id = null)
+    {
+        $this->loadModel('Gallery');
+        $gallery_table = TableRegistry::getTableLocator()->get('Gallery');
+        $existing_gallery = $gallery_table->get($id);
+
+        $nameFromForm = $this->request->getData('name');
+        $isVisibleFromForm = $this->request->getData('is_visible');
+        if(empty($isVisibleFromForm)) {
+            $isVisibleFromForm = '0';
+        }
+        $categoryIdFromForm = $this->request->getData('category');
+
+        $existing_gallery->name = $nameFromForm;
+        $existing_gallery->is_visible = $isVisibleFromForm;
+        $existing_gallery->category_id = $categoryIdFromForm;
+
+
+        if($gallery_table->save($existing_gallery))
+        {
+            $this->Flash->success(__('Zapisano zmiany!'));
+        } else {
+            $this->Flash->error(__('Wystąpił błąd przy zapisywaniu zmian!'));
+        }
+        $this->redirect('/panel/edit_gallery/' . $id);
     }
 
     public function updateGalleryLabel($id = null)
