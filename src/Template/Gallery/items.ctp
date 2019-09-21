@@ -22,8 +22,8 @@ $this->layout = 'default';
             <div class="col-md-12 col-12">
                 <div class="row">
                     <?php foreach($gallery_items as $item) : ?>
-                        <a href="/gallery/items/ <?= h($item->id) ?>" class="col-xl-3 col-md-4 box-2">
-                            <img src="/assets/<?= h($item->url) ?>" class="img-fluid">
+                        <a href="/assets/<?= h($item->url) ?>" class="col-xl-3 col-md-4 box-2" data-toggle="lightbox" data-gallery="single_gallery">
+                            <img src="/assets/<?= h($item->url) ?>" class="img-fluid img-thumbnail" alt="">
                             <div class="overlay">
                                 <div class="text"><?= h($item->name) ?></div>
                             </div>
