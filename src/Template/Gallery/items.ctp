@@ -25,7 +25,7 @@ $this->layout = 'default';
                     <?php foreach($gallery_items as $item) : ?>
                         <div class="col-xl-3 col-md-4 box-2">
                             <a href="/assets/<?= h($item->url) ?>" class="w-100 d-block" data-toggle="lightbox" data-gallery="single_gallery">
-                                <img src="/assets/<?= h($item->url) ?>" class="img-fluid img-thumbnail" alt="">
+                                <img src="/assets/<?= h($item->url) ?>" class="img-fluid" alt="">
                             </a>
                         </div>
                     <?php endforeach; ?>
