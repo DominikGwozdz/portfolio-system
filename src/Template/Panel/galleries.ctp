@@ -1,6 +1,7 @@
 <?php
 $this->layout = 'panel';
-?>
+
+use App\Controller\HelperController; ?>
 
 
 <!-- Begin Page Content -->
@@ -40,7 +41,8 @@ $this->layout = 'panel';
                     <td><?= h($gallery->name) ?></td>
                     <td><?php if (!$gallery->picture): ?><a href="/panel/edit_gallery_label/<?= h($gallery->id) ?>">Wgraj okładkę</a> <?php else: ?><a href="/panel/edit_gallery_label/<?= h($gallery->id) ?>"><img class="w-25 img-fluid" src="/assets/<?= h($gallery->picture) ?>" /></a><?php endif; ?></td>
                     <td><?php if($gallery->is_visible == '1'): ?>Tak<?php else: ?>Nie<?php endif; ?></td>
-                    <td>To trzeba zaprogramować</td>
+                    <td><?= h(HelperController::getCategoryNameById($gallery->category_id)) ?></td>
+
                     <td><a href="/panel/edit_gallery/<?= h($gallery->id) ?>">Zmień</a></td>
                 </tr>
             <?php endforeach; ?>
