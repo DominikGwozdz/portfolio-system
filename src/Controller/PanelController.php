@@ -424,7 +424,7 @@ class PanelController extends AppController
         $gallery_items = $gallery_item->findByGalleryId($id);
         $this->set("gallery_items", $gallery_items);
 
-        $this->render('edit_gallery');
+
 
         $titleSentFromForm = $this->request->getData('title');
         $imageSentFromForm = $this->request->getData(['image_path']);
@@ -432,7 +432,7 @@ class PanelController extends AppController
         $existing_gallery = $gallery_table->get($id);
 
 
-        if(!empty($imageSentFromForm)) {
+        if(!empty($imageSentFromForm) && !empty($titleSentFromForm)) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -456,6 +456,8 @@ class PanelController extends AppController
 
             }
 
+        } else {
+            $this->Flash->error(__('Podaj nazwę zdjęcia i wybierz zdjęcie!'));
         }
 
         $this->redirect('/panel/edit_gallery/' . $id);
