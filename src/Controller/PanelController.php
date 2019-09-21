@@ -458,4 +458,43 @@ class PanelController extends AppController
 
         }
     }
+
+    public function editGalleryLabel($id = null)
+    {
+        $gallery = $this->loadModel('Gallery');
+        $gallery = $gallery->findById($id)->first();
+        $this->set("gallery", $gallery);
+
+        $this->render('edit_gallery_label');
+    }
+
+    public function updateGalleryLabel($id = null)
+    {
+        $this->loadModel('Gallery');
+
+        $gallery_table = TableRegistry::getTableLocator()->get('Gallery');
+        $existing_gallery = $gallery_table->get($id);
+
+        $imageSentFromForm = $this->request->getData(['image_path']);
+        if(!empty($imageSentFromForm)) {
+            $imageName = $imageSentFromForm['name'];
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName = strtolower($imageName);
+
+            $pathToUploadedImage = $existing_gallery->directory.$imageName;
+            $pathToUploadedImage_physicaly = 'assets/' . $pathToUploadedImage;
+            if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage_physicaly))
+            {
+                $existing_gallery->picture = $pathToUploadedImage;
+                $gallery_table->save($existing_gallery);
+
+                $this->Flash->success(__('Dodano zdjęcie do galerii!'));
+            } else {
+                $this->Flash->error(__('Wystąpił błąd przy dodawaniu zdjęcia!'));
+            }
+
+        }
+
+        $this->redirect('/panel/edit_gallery_label/' . $id);
+    }
 }
