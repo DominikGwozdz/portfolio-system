@@ -25,7 +25,7 @@ $this->layout = 'default';
                 <div class="row">
                     <?php foreach($galleries as $gallery) : ?>
                         <a href="/gallery/items/<?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
-                            <img src="/assets/<?= h($gallery->url) ?>" class="img-fluid">
+                            <img src="/assets/<?= h($gallery->picture) ?>" class="img-fluid">
                             <div class="overlay">
                                 <div class="text"><?= h($gallery->name) ?></div>
                             </div>
