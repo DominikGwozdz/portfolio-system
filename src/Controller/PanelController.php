@@ -353,6 +353,7 @@ class PanelController extends AppController
     {
         $this->loadModel('Gallery');
         $nameFromForm = $this->request->getData('name');
+        $imageSentFromForm = $this->request->getData('image_path');
         $isVisibleFromForm = $this->request->getData('is_visible');
         $categoryIdFromForm = $this->request->getData('category');
         if(empty($isVisibleFromForm)) {
@@ -360,7 +361,6 @@ class PanelController extends AppController
         }
 
         if(!empty($nameFromForm)) {
-
             $saveInDb = $this->Gallery->newEntity();
             $saveInDb->name = $nameFromForm;
 
@@ -371,6 +371,20 @@ class PanelController extends AppController
             $directory_of_gallery = WWW_ROOT . 'assets/gallery/' . $hashed_directory_name;
             if(!file_exists($directory_of_gallery)) {
                 $folder = new Folder($directory_of_gallery, true, 0755);
+            }
+
+            if(!empty($imageSentFromForm))
+            {
+                $uploadPath = 'gallery/' . $hashed_directory_name . '/';
+                $imageName = $imageSentFromForm['name'];
+                $imageName = str_replace(" ", "_", $imageName);
+                $imageName = strtolower($imageName);
+
+                $pathToUploadedImage = $uploadPath.$imageName;
+                $pathToUploadedImage_pyshicaly = WWW_ROOT . '/assets/' . $pathToUploadedImage;
+                if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage_pyshicaly)) {
+                    $saveInDb->picture = $pathToUploadedImage;
+                }
             }
 
             $saveInDb->is_visible = $isVisibleFromForm;
