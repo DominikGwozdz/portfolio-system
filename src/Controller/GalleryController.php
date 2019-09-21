@@ -43,4 +43,17 @@ class GalleryController extends AppController
         $this->render('show');
     }
 
+    public function items($id = null)
+    {
+        $gallery_items = $this->loadModel('GalleryItem');
+        $gallery_items = $gallery_items->findByGalleryId($id);
+        $this->set("gallery_items", $gallery_items);
+
+        $gallery = $this->loadModel('Gallery');
+        $gallery = $gallery->findById($id)->first();
+        $this->set("gallery", $gallery);
+
+        $this->render('items');
+    }
+
 }
