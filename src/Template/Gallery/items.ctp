@@ -23,12 +23,11 @@ $this->layout = 'default';
             <div class="col-md-12 col-12">
                 <div class="row">
                     <?php foreach($gallery_items as $item) : ?>
-                        <a href="/assets/<?= h($item->url) ?>" class="col-xl-3 col-md-4 box-2" data-toggle="lightbox" data-gallery="single_gallery">
-                            <img src="/assets/<?= h($item->url) ?>" class="img-fluid img-thumbnail" alt="">
-                            <div class="overlay">
-                                <div class="text"><?= h($item->name) ?></div>
-                            </div>
-                        </a>
+                        <div class="col-xl-3 col-md-4 box-2">
+                            <a href="/assets/<?= h($item->url) ?>" class="w-100 d-block" data-toggle="lightbox" data-gallery="single_gallery">
+                                <img src="/assets/<?= h($item->url) ?>" class="img-fluid img-thumbnail" alt="">
+                            </a>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>

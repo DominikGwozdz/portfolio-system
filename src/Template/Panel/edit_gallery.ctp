@@ -22,7 +22,6 @@ $this->layout = 'panel';
     <div class="mt-5">
         <?= $this->Form->create("single_gallery", ['url' => '/panel/update_gallery/' . $single_gallery->id, 'enctype' => 'multipart/form-data']) ?>
         <?= $this->Form->control('image_path', ['type' => 'file', 'label' => __('Wybierz zdjęcie: ')]) ?>
-        <?= $this->Form->control('title', ['type' => 'text', 'class' => 'form-control', 'label' => __('Nazwa zdjęcia')]) ?>
         <?= $this->Form->control('Dodaj', ['type' => 'submit', 'class' => 'btn btn-success mt-3']) ?>
         <?= $this->Form->end() ?>
     </div>

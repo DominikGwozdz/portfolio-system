@@ -424,15 +424,12 @@ class PanelController extends AppController
         $gallery_items = $gallery_item->findByGalleryId($id);
         $this->set("gallery_items", $gallery_items);
 
-
-
-        $titleSentFromForm = $this->request->getData('title');
         $imageSentFromForm = $this->request->getData(['image_path']);
         $gallery_table = TableRegistry::getTableLocator()->get('Gallery');
         $existing_gallery = $gallery_table->get($id);
 
 
-        if(!empty($imageSentFromForm) && !empty($titleSentFromForm)) {
+        if(!empty($imageSentFromForm)) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
             $imageName = strtolower($imageName);
@@ -442,7 +439,6 @@ class PanelController extends AppController
             if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage_physicaly))
             {
                 $gallery_item_table = $this->GalleryItem->newEntity();
-                $gallery_item_table->name = $titleSentFromForm;
                 $gallery_item_table->url = $pathToUploadedImage;
                 $gallery_item_table->is_highlighted = 0;
                 $gallery_item_table->gallery_id = $existing_gallery->id;
@@ -457,7 +453,7 @@ class PanelController extends AppController
             }
 
         } else {
-            $this->Flash->error(__('Podaj nazwę zdjęcia i wybierz zdjęcie!'));
+            $this->Flash->error(__('Wybierz zdjęcie!'));
         }
 
         $this->redirect('/panel/edit_gallery/' . $id);
