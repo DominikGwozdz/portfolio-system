@@ -10,7 +10,7 @@ $this->layout = 'default';
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Galeria - <?= h($gallery_category->name) ?></h3>
+                <h3>Kategoria - <?= h($gallery_category->name) ?></h3>
             </div>
         </div>
     </div>
@@ -19,11 +19,12 @@ $this->layout = 'default';
 
 <section id="portfolio">
     <div class="container">
+        <a href="/gallery" class="text-muted d-flex mb-4"> <- Wróć do listy kategorii</a>
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div class="row">
                     <?php foreach($galleries as $gallery) : ?>
-                        <a href="/gallery/items/ <?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
+                        <a href="/gallery/items/<?= h($gallery->id) ?>" class="col-xl-3 col-md-4 box-2">
                             <img src="/assets/<?= h($gallery->url) ?>" class="img-fluid">
                             <div class="overlay">
                                 <div class="text"><?= h($gallery->name) ?></div>

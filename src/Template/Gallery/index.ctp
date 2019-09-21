@@ -24,7 +24,7 @@ $this->layout = 'default';
                 <div class="row">
                     <?php foreach ($gallery_category as $single_category): ?>
                         <?php if ($single_category->is_visible == '1'): ?>
-                            <a href="/gallery/show/ <?= h($single_category->id) ?>" class="col-xl-3 col-md-4 box-2">
+                            <a href="/gallery/show/<?= h($single_category->id) ?>" class="col-xl-3 col-md-4 box-2">
                                 <img src="/assets/<?= h($single_category->url) ?>" class="img-fluid">
                                 <div class="overlay">
                                     <div class="text"><?= h($single_category->name) ?></div>
