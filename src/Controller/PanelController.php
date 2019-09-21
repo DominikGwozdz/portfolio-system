@@ -457,6 +457,8 @@ class PanelController extends AppController
             }
 
         }
+
+        $this->redirect('/panel/edit_gallery/' . $id);
     }
 
     public function editGalleryLabel($id = null)
