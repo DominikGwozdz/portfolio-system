@@ -538,4 +538,31 @@ class PanelController extends AppController
 
         $this->redirect('/panel/edit_gallery_label/' . $id);
     }
+
+    public function removeExistingGallery($id = null)
+    {
+        $gallery = $this->loadModel('Gallery');
+        $gallery_item = $this->loadModel('GalleryItem');
+
+        $gallery_table = TableRegistry::getTableLocator()->get('Gallery');
+        $gallery = $gallery_table->get($id);
+
+        $gallery_item = $gallery_item->findByGalleryId($gallery->id);
+        foreach($gallery_item as $item)
+        {
+            $folder_gallery_item = new Folder(WWW_ROOT . 'assets/' . $item->url);
+            $folder_gallery_item->delete();
+        }
+
+        $folder_gallery = new Folder(WWW_ROOT . 'assets/' . $gallery->directory);
+        $folder_gallery->delete();
+
+        $gallery_item_table = TableRegistry::getTableLocator()->get('GalleryItem');
+        $gallery_item_table->deleteAll(array('GalleryItem.gallery_id' => $gallery->id));
+        $gallery_table->delete($gallery);
+
+        $this->Flash->success(__('Galeria została usunięta poprawnie!'));
+
+        $this->redirect('/panel/galleries/');
+    }
 }
