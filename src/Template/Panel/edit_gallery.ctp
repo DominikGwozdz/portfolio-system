@@ -16,7 +16,7 @@ $this->layout = 'panel';
     </div>
 
     <?php foreach ($gallery_items as $item) : ?>
-        <img src="/assets/<?= h($item->url) ?>" class="img-fluid w-25" />
+        <a href="/panel/edit_gallery_item/<?= h($item->id) ?>"><img src="/assets/<?= h($item->url) ?>" class="img-fluid w-25" /></a>
     <?php endforeach; ?>
 
     <div class="mt-5">

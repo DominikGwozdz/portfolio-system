@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Filesystem\File;
 use Cake\Filesystem\Folder;
 use Cake\ORM\TableRegistry;
 
@@ -565,5 +566,28 @@ class PanelController extends AppController
         $this->Flash->success(__('Galeria została usunięta poprawnie!'));
 
         $this->redirect('/panel/galleries/');
+    }
+
+    public function editGalleryItem($id = null)
+    {
+        $gallery_item = $this->loadModel('GalleryItem');
+        $gallery_item = $gallery_item->findById($id)->first();
+
+        $this->set("gallery_item", $gallery_item);
+        $this->render('edit_gallery_item');
+    }
+
+    public function editGalleryItemDelete($id = null)
+    {
+        $gallery_item = $this->loadModel('GalleryItem');
+        $gallery_item = $gallery_item->findById($id)->first();
+
+        $file_gallery_item = new File(WWW_ROOT . 'assets/'. $gallery_item->url);
+        $file_gallery_item->delete();
+
+        $gallery_item_table = TableRegistry::getTableLocator()->get('GalleryItem');
+        $gallery_item_table->deleteAll(array('GalleryItem.id' => $id));
+
+        $this->redirect('/panel/galleries');
     }
 }
