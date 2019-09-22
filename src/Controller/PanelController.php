@@ -105,7 +105,8 @@ class PanelController extends AppController
         $slider_element = $top_slider_homepage_table->get($id);
         $top_slider_homepage_table->delete($slider_element);
 
-        unlink(WWW_ROOT . '/assets/'. $slider_element->url);
+        $folder_slider_element = new Folder(WWW_ROOT . '/assets/'. $slider_element->url);
+        $folder_slider_element->delete();
 
         $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
 
@@ -185,7 +186,8 @@ class PanelController extends AppController
         $single_element = $favourites_footer_table->get($id);
         $favourites_footer_table->delete($single_element);
 
-        unlink(WWW_ROOT . '/assets/'. $single_element->url);
+        $folder_favourite_footer = new Folder(WWW_ROOT . '/assets/'. $single_element->url);
+        $folder_favourite_footer->delete();
 
         $this->Flash->success(__('Zdjęcie zostało poprawnie usunięte!'));
 
@@ -321,9 +323,8 @@ class PanelController extends AppController
         $category_element = $categories_gallery_table->get($id);
         $categories_gallery_table->delete($category_element);
 
-        try {
-            unlink(WWW_ROOT . '/assets/'. $category_element->url);
-        } catch (\Exception $e) {}
+        $folder_category_gallery = new Folder(WWW_ROOT . '/assets/'. $category_element->url);
+        $folder_category_gallery->delete();
 
 
         $this->Flash->success(__('Kategoria została poprawnie usunięta!'));
