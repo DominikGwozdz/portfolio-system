@@ -40,7 +40,7 @@ $this->layout = 'panel';
             <hr />
             <p class="font-weight-bold h4">Usuwanie galerii</p>
             <span class="text-muted d-block">Uwaga!!! Usuwa galerie razem ze zdjęciami</span>
-            <a href="#" class="btn btn-danger mt-2">Usuń galerie</a>
+            <a href="/panel/remove_existing_gallery/<?= h($single_gallery->id) ?>" class="btn btn-danger mt-2">Usuń galerie</a>
         </div>
     </div>
 </div>
