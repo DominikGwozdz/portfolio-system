@@ -213,6 +213,14 @@ class PanelController extends AppController
         $descriptionSentFromForm = $this->request->getData(['description']);
         $imageSentFromForm = $this->request->getData(['image_path']);
         $uploadPath = 'assets/about_me/';
+
+        $about_me_table = TableRegistry::getTableLocator()->get('AboutMe');
+        $single_element = $about_me_table->get(1);
+
+        if(!empty($descriptionSentFromForm))
+        {
+            $single_element->description = $descriptionSentFromForm;
+        }
         if(!empty($imageSentFromForm)) {
             $imageName = $imageSentFromForm['name'];
             $imageName = str_replace(" ", "_", $imageName);
@@ -221,23 +229,18 @@ class PanelController extends AppController
             $pathToUploadedImage = $uploadPath.$imageName;
             if (move_uploaded_file($imageSentFromForm['tmp_name'],$pathToUploadedImage))
             {
-                $about_me_table = TableRegistry::getTableLocator()->get('AboutMe');
-                $single_element = $about_me_table->get(1);
-
                 $single_element->photo = 'about_me/' . $imageName;
-                $single_element->description = $descriptionSentFromForm;
-
-                if($this->AboutMe->save($single_element))
-                {
-                    $this->Flash->success(__('Strona o mnie została zaktualizowana!'));
-                } else {
-                    $this->Flash->error(__('Wystąpił błąd!'));
-                }
-
-                $this->redirect('/panel/about/');
             }
-
         }
+
+        if($this->AboutMe->save($single_element))
+        {
+            $this->Flash->success(__('Strona o mnie została zaktualizowana!'));
+        } else {
+            $this->Flash->error(__('Wystąpił błąd!'));
+        }
+
+        $this->redirect('/panel/about/');
     }
 
     // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- // // --- // -- // -- // -- // -- //
