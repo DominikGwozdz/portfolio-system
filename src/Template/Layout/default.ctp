@@ -57,6 +57,9 @@ $cakeDescription = 'Portfolio System';
                 <li class="nav-item <?php if($this->request->getParam('controller') == 'About'): ?>active<?php endif; ?>">
                     <a class="nav-link" href="/about">O mnie</a>
                 </li>
+                <li class="nav-item <?php if($this->request->getParam('controller') == 'Achievements'): ?>active<?php endif; ?>">
+                    <a class="nav-link" href="/achievements">Osiągnięcia</a>
+                </li>
                 <li class="nav-item <?php if($this->request->getParam('controller') == 'Gallery'): ?>active<?php endif; ?>">
                     <a class="nav-link" href="/gallery">Galeria </a>
                 </li>
@@ -101,6 +104,8 @@ $cakeDescription = 'Portfolio System';
                             <li><a href="/">Strona Główna</a></li>
                             <li class="hidden">/</li>
                             <li><a href="about">O mnie</a></li>
+                            <li class="hidden">/</li>
+                            <li><a href="achievements">Osiągnięcia</a></li>
                             <li class="hidden">/</li>
                             <li><a href="gallery">Galeria</a></li>
                             <li class="hidden">/</li>
