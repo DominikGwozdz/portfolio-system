@@ -38,7 +38,6 @@ class PanelController extends AppController
     }
     public function upload()
     {
-        $this->render('slider');
         $imageSentFromForm = $this->request->getData(['image_path']);
         $titleFromForm = $this->request->getData('title');
         $descriptionFromForm = $this->request->getData('description');
@@ -68,6 +67,9 @@ class PanelController extends AppController
                 }
 
 
+                $this->redirect('/panel/slider');
+            } else {
+                $this->Flash->error(__("Niestety nie udało się wgrac zdjęcia! Możliwy brak uprawnień do plików"));
                 $this->redirect('/panel/slider');
             }
 
