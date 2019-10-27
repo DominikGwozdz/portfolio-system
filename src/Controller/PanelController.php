@@ -69,10 +69,13 @@ class PanelController extends AppController
 
                 $this->redirect('/panel/slider');
             } else {
-                $this->Flash->error(__("Niestety nie udało się wgrac zdjęcia! Możliwy brak uprawnień do plików"));
+                $this->Flash->error(__("Niestety nie udało się wgrać zdjęcia! Rozmiar obrazka jest za duży!"));
                 $this->redirect('/panel/slider');
             }
 
+        } else {
+            $this->Flash->error(__("Musisz wpisać tytuł i opis obrazka!"));
+            $this->redirect("/panel/slider");
         }
     }
 
