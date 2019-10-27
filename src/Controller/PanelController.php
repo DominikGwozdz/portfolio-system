@@ -38,6 +38,7 @@ class PanelController extends AppController
     }
     public function upload()
     {
+        $this->render('slider');
         $imageSentFromForm = $this->request->getData(['image_path']);
         $titleFromForm = $this->request->getData('title');
         $descriptionFromForm = $this->request->getData('description');
