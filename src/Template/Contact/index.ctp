@@ -17,7 +17,6 @@ $this->layout = 'default';
 
                 <p>Mój facebook: <a href="https://www.facebook.com/sylwia.sak.5">Link do Profilu publicznego</a></p>
                 <p>Mój e-mail: sylwia.sak1@gmail.com</p>
-                <p>Inne dane</p>
             </div>
         </div>
     </div>
