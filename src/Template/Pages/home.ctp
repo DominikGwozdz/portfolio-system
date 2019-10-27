@@ -35,11 +35,20 @@
 
 <section id="portfolio">
     <div class="container">
-        <h2>Oferta</h2>
-        <div class="row text-center">
-            <div class="col-sm-12 col-md-4">Fotografia dziecięca</div>
-            <div class="col-sm-12 col-md-4">Stworzenie fotoalbumu</div>
-            <div class="col-sm-12 col-md-4">Plener</div>
+        <h2>Rozgość się na mojej stronie, <br />pooglądaj zdjęcia, zapoznaj sie z ofertą</h2>
+        <div class="row text-center mt-5 mb-5">
+            <div class="col-sm-12 col-md-4">
+                <p class="font-weight-bold">Zastanawiasz się nad sesją zdjęciową?</p>
+                <p>Mam dla Ciebie <a href="/offer" class="btn-link">ofertę</a>, <br>obejrzyj najpierw moją <a href="/gallery" class="btn-link">galerię</a></p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <p class="font-weight-bold">Spodobały Ci się zdjęcia?</p>
+                <p>Jeśli tak to bardzo się ciesze, <br>zachęcam do <a href="/contact" class="btn-link">skontaktowania</a> sie ze mna w celu umówienia terminu i warunków sesji zdjęciowej</p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <p class="font-weight-bold">Zainteresowała Cię moja oferta?</p>
+                <p>Wszystkie zdjęcia, które widzisz na tej stronie, zostały wykonane przeze mnie</p>
+            </div>
         </div>
     </div>
 </section>
