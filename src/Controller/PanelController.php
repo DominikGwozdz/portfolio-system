@@ -22,6 +22,13 @@ class PanelController extends AppController
         $this->loadComponent('Flash');
     }
 
+    public function beforeFilter(Event $event)
+    {
+        if (in_array($this->request->getParam('action'), ['upload'])){
+            $this->getEventManager()->off($this->Csrf);
+        }
+    }
+
     public function index()
     {
         $this->render('index');
